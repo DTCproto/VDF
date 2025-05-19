@@ -24,3 +24,39 @@
 {Text="Custom Commands:"}={Text="自定义命令:"}
 {Text="OpenItemInFolder:"}={Text="在文件夹中打开项目:"}
 {Text="Custom Database Folder:"}={Text="自定义数据库文件夹:"}
+
+
+{ToolTip.Tip="Deactivate to save memory by disabling preview images of duplicates"}={ToolTip.Tip="通过禁用重复的预览图像来节省内存"}
+{ToolTip.Tip="Symbolic links and junction only. Note this will completely skip these from file enumeration to search."}={ToolTip.Tip="仅限符号链接和连接点。请注意，这将完全跳过这些内容，从文件枚举到搜索。"}
+{ToolTip.Tip="Unlike reparse points hard links are still included in search but are not considered as duplicates. WARNING: Use this option only when necessary, as it slows down the scanning process considerably!"}={ToolTip.Tip="与重新解析点不同，硬链接仍包含在搜索中，但不被视为重复。警告：仅在必要时使用此选项，因为它会大大减慢扫描过程！"}
+{ToolTip.Tip="If activated ffmpeg and ffprobe errors will be written to the log"}={ToolTip.Tip="如果激活了ffmpeg和ffprobe，错误将会写入日志"}
+{ToolTip.Tip="If activated scan engine will try to generate thumbprints of failed entries each time it is run. Otherwise consecutive attempt will be taken only after cleanup of the database."}={ToolTip.Tip="如果已激活扫描引擎，则每次运行时都会尝试生成失败条目的指纹。否则，只有在清理数据库后才会进行连续尝试。"}
+{ToolTip.Tip="If activated a backup gets created each time the scan results list gets changed"}={ToolTip.Tip="如果激活，每次扫描结果列表发生变化时都会创建备份"}
+{ToolTip.Tip="If activated it will call ffmpeg functions natively instead of spawning a new ffmpeg.exe process. This is MUCH(!!) faster. WARNING: You must use the latest SHARED and STABLE ffmpeg version. If something goes wrong then whole VDF will crash."}={ToolTip.Tip="如果激活，它将原生调用 ffmpeg 函数，而不是生成新的 ffmpeg.exe 进程。这要快得多！警告：您必须使用最新的共享和稳定版 ffmpeg。如果出现问题，整个 VDF 将会崩溃。"}
+{ToolTip.Tip="Skip black pixels when comparing thumbnails. Lowers the chance for 'false positives' if thumbnails contain too much dark and raises the chance to detect duplicates if one of the thumbnails have black bars and the others not. In rare scenarios this might raise the 'false positives' instead. Slows down the scan speed by a bit."}={ToolTip.Tip="比较缩略图时跳过黑色像素。如果缩略图包含过多黑色像素，则降低“误报”的概率；如果其中一个缩略图有黑条而其他没有，则提高检测到重复项的概率。在极少数情况下，这可能会增加“误报”的概率。扫描速度会略微降低。"}
+
+{ToolTip.Tip="Skip white pixels when comparing thumbnails. Lowers the chance for 'false positives' if thumbnails contain too much brightness and raises the chance to detect duplicates if one of the thumbnails have white bars and the others not. In rare scenarios this might raise the 'false positives' instead. Slows down the scan speed by a bit."}={ToolTip.Tip="比较缩略图时跳过白色像素。如果缩略图包含过多亮度，则降低“误报”的概率；如果其中一个缩略图有白条而其他没有，则提高检测到重复项的概率。在极少数情况下，这可能会增加“误报”的概率。扫描速度会略微降低。"}
+{ToolTip.Tip="Select this option if your video collection might contain horizontally flipped videos and you want them to be detected reliably. Slows down the scan speed by a bit."}={ToolTip.Tip="如果您的视频集可能包含水平翻转的视频，并且您希望能够可靠地检测它们，请选择此选项。这会稍微降低扫描速度。"}
+{ToolTip.Tip="If checked you will be asked if you want to save the results when you close VDF"}={ToolTip.Tip="如果选中，系统会询问您是否要在关闭 VDF 时保存结果"}
+{ToolTip.Tip="If checked non-existing files which have all necessary information are included"}={ToolTip.Tip="如果检查不存在的文件，但包含所有必要的信息"}
+{ToolTip.Tip="If checked scan is also performed against your entire database unless database files are excluded otherwise (i.e. exclude list, file path must contain, etc)"}={ToolTip.Tip="如果选中，则还会对整个数据库执行扫描，除非数据库文件被排除（即排除列表、文件路径必须包含等）"}
+
+{ToolTip.Tip="Minimum percentage that thumbnails must match before they are considered duplicates"}={ToolTip.Tip="缩略图必须匹配的最小百分比才会被视为重复"}
+{ToolTip.Tip="Only scan videos against each other where the duration is not bigger/smaller than X %"}={ToolTip.Tip="仅扫描时长不大于/小于 X% 的视频"}
+{ToolTip.Tip="Number of thumbnails generated per file. This only applies to video files. A high number means that the scan takes longer but also the chance of a 'false positive' decreases."}={ToolTip.Tip="每个文件生成的缩略图数量。此设置仅适用于视频文件。数量越多，扫描时间越长，但误报率也会降低。"}
+{ToolTip.Tip="Limits the amount of concurrent tasks. A value of -1 leaves it up to the system to decide, a value of 1 is most stable."}={ToolTip.Tip="限制并发任务数量。值为 -1 时由系统自行决定，值为 1 时最稳定。"}
+={ToolTip.Tip="FF(mpeg/probe) arguments passed to the end of the internal arguments. Most users can leave this empty."}={ToolTip.Tip="FF(mpeg/probe)函数的参数传递到内部参数的末尾。大多数用户可以将其留空。"}
+{ToolTip.Tip="Hardware acceleration mode of ffmpeg"}={ToolTip.Tip="ffmpeg的硬件加速模式"}
+{ToolTip.Tip="Enter your own commands to open single or multiple files."}={ToolTip.Tip="输入您自己的命令来打开单个或多个文件。"}
+{ToolTip.Tip="E.g.: 'nemo --tabs %f', where '%f' is the placeholder for the file(s)"}={ToolTip.Tip="例如：'nemo --tabs %f'，其中'%f'是文件的占位符"}
+{ToolTip.Tip="Specify a custom database folder. Otherwise it uses the current VDF folder."}={ToolTip.Tip="指定自定义数据库文件夹。否则，将使用当前 VDF 文件夹。"}
+
+
+{ToolTip.Tip="Re-run the scan but without enumerating and gathering file informations. Changing certain settings will only take effect during a full scan."}={ToolTip.Tip="重新运行扫描，但不枚举和收集文件信息。更改某些设置仅在完整扫描期间生效。"}
+{ToolTip.Tip="Removes entries which file no longer exists or which failed on ffmpeg/ffprobe"}={ToolTip.Tip="删除文件不再存在或在 ffmpeg/ffprobe 上失败的条目"}
+{ToolTip.Tip="Keep longest / Best Quality. The order is: Duration, Resolution, FPS, Bitrate, Audio Bitrate"}={ToolTip.Tip="保持最长/最佳画质。顺序为：时长、分辨率、FPS、比特率、音频比特率"}
+{ToolTip.Tip="Note: if only one item of a group is matching, all group items will be shown"}={ToolTip.Tip="注意：如果一个组中只有一个项目匹配，则将显示所有组项目"}
+
+{ToolTip.Tip="Links all selected items to the first unselected item in each group."}={ToolTip.Tip="将所有选定的项目链接到每个组中第一个未选定的项目。"}
+{ToolTip.Tip="Hides this group and exclude it from future scans, except when there is a new duplicate."}={ToolTip.Tip="隐藏该组并将其排除在以后的扫描之外，除非有新的重复。"}
+{ToolTip.Tip="Note: Settings are automatically saved on normal exit"}={ToolTip.Tip="注意：正常退出时设置会自动保存"}
