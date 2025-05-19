@@ -1,0 +1,8 @@
+{
+  "target_dir": "./app/src/videoduplicatefinder",
+  "output_dir": "./replace",
+  "replacements_file": "./replacements.txt",
+  "file_extensions": [],
+  "ignore_read_only": false,
+  "include_sub_dirs": true
+}

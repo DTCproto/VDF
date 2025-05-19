@@ -1,0 +1,89 @@
+name: Build releases
+
+
+on:
+  # you may only define up to 10 `inputs` for a `workflow_dispatch` event
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    strategy:
+      matrix:
+        kind: ['linux', 'windows', 'linuxarm64']
+        include:
+          - kind: linux
+            os: ubuntu-latest
+            target: linux-x64
+            name: linux-x64
+          - kind: windows
+            os: windows-latest
+            target: win-x64
+            name: win-x64
+          - kind: linuxarm64
+            os: ubuntu-latest
+            target: linux-arm64
+            name: linux-arm64
+            
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+        fetch-depth: '0'
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+
+    - name: Declare some variables
+      shell: bash
+      run: |
+        cd $GITHUB_WORKSPACE/app/src/videoduplicatefinder/
+        echo "vdf_sha_short=$(git rev-parse --short HEAD)" >> "$GITHUB_ENV"
+
+    - name: change language (Linux)
+      if: matrix.kind != 'windows'
+      shell: bash
+      run: |
+        cp -rf "$GITHUB_WORKSPACE/replace/"* "$GITHUB_WORKSPACE/app/src/videoduplicatefinder/"
+
+    - name: change language (Windows)
+      if: matrix.kind == 'windows'
+      shell: powershell
+      run: |
+        Copy-Item "$env:GITHUB_WORKSPACE\replace\*" "$env:GITHUB_WORKSPACE\app\src\videoduplicatefinder" -Recurse -Force
+
+    - name: Build
+      shell: bash
+      run: |
+          cd $GITHUB_WORKSPACE/app/src/videoduplicatefinder/
+          release_name="App-${{ matrix.target }}-3.0.${{ env.vdf_sha_short }}"
+          # Add nuget sources
+          dotnet nuget add source https://www.myget.org/F/sixlabors/api/v3/index.json
+          # Build everything
+          dotnet publish ./VDF.GUI/VDF.GUI.csproj -c Release -v q --self-contained -r "${{ matrix.target }}" -o "outputFolder"
+          # Pack files
+          if [ "${{ matrix.target }}" == "win-x64" ]; then
+            # Pack to zip for Windows
+            7z a -tzip "${release_name}.zip" "./outputFolder/*"
+          else
+            tar czvf "${release_name}.tar.gz" "outputFolder"
+          fi
+          # Delete output directory
+          rm -r "outputFolder"
+
+    - name: Publish
+      uses: softprops/action-gh-release@v2
+      with:
+          tag_name: "3.0.${{ env.vdf_sha_short }}"
+          name: "3.0.${{ env.vdf_sha_short }}"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: app/src/videoduplicatefinder/App-*
+          body: |
+            Note: These are daily builds. Attachments are automatically created and replaced on every new commit. Regardless of what the message above says. If you experience upgrade issues you may need to delete your 'ScannedFiles.db' file in VDF folder.
+            Last build based on ${{ env.vdf_sha_short }}
+
+

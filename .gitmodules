@@ -1,3 +1,4 @@
-[submodule "app/src"]
-	path = app/src
+
+[submodule "app/src/videoduplicatefinder"]
+	path = app/src/videoduplicatefinder
 	url = https://github.com/0x90d/videoduplicatefinder.git

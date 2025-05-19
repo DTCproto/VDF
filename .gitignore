@@ -23,3 +23,17 @@ go.work.sum
 
 # env file
 .env
+
+.vscode
+.idea/
+
+assets/
+
+# Ignore backup and temporary files
+*~
+*.swp
+*.swo
+
+# Ignore build and log directories
+build/
+logs/

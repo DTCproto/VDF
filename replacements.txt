@@ -1,0 +1,26 @@
+{Content="Ignore Read Only Folders"}={Content="忽略只读文件夹"}
+{Content="Include Sub Directories"}={Content="包含子目录"}
+{Content="Include Images"}={Content="包含图像"}
+{Content="Generate Preview Images"}={Content="生成预览图像"}
+{Content="Exclude Reparse Points"}={Content="排除重解析点"}
+{Content="Exclude Hard Links"}={Content="排除硬链接"}
+{Content="Extended FFTools Logging"}={Content="扩展的FFTools日志记录"}
+{Content="Always retry failed sampling"}={Content="始终重试采样失败的任务"}
+{Content="Auto backup scan results"}={Content="自动备份扫描结果"}
+{Content="Use native Ffmpeg binding"}={Content="使用原生Ffmpeg绑定"}
+{Content="Ignore Black Pixels"}={Content="忽略黑色像素"}
+{Content="Ignore White Pixels"}={Content="忽略白色像素"}
+{Content="Compare Horizontally Flipped"}={Content="比较水平翻转的图像"}
+{Content="Save results on exit"}={Content="退出时保存结果"}
+{Content="Scan against non-existing files"}={Content="针对不存在的文件进行扫描"}
+{Content="Scan against entire database"}={Content="针对整个数据库进行扫描"}
+
+{Text="Percent:"}={Text="差异百分比:"}
+{Text="Duration Difference:"}={Text="时长差异:"}
+{Text="Thumbnails:"}={Text="缩略图:"}
+{Text="Max Degree Of Parallelism:"}={Text="最大并行度:"}
+{Text="Custom FF Arguments:"}={Text="自定义FF参数:"}
+{Text="Hardware Acceleration:"}={Text="硬件加速:"}
+{Text="Custom Commands:"}={Text="自定义命令:"}
+{Text="OpenItemInFolder:"}={Text="在文件夹中打开项目:"}
+{Text="Custom Database Folder:"}={Text="自定义数据库文件夹:"}
