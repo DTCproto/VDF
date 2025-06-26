@@ -1,3 +1,11 @@
+
+{Content="OK"}={Content="OK"}
+{Content="Yes"}={Content="Yes"}
+{Content="No"}={Content="No"}
+{Content="Cancel"}={Content="取消"}
+{Content="Select"}={Content="选择"}
+{Content="Close"}={Content="关闭"}
+{Content="Ignore groups which contain selected items"}={Content="忽略包含选定项的组"}
 {Content="Ignore Read Only Folders"}={Content="忽略只读文件夹"}
 {Content="Include Sub Directories"}={Content="包含子目录"}
 {Content="Include Images"}={Content="包含图像"}
@@ -7,20 +15,33 @@
 {Content="Extended FFTools Logging"}={Content="扩展的FFTools日志记录"}
 {Content="Always retry failed sampling"}={Content="始终重试采样失败的任务"}
 {Content="Auto backup scan results"}={Content="自动备份扫描结果"}
-{Content="Use native Ffmpeg binding"}={Content="使用原生Ffmpeg绑定"}
+{Content="Use native Ffmpeg binding"}={Content="使用原生FFmpeg绑定"}
 {Content="Ignore Black Pixels"}={Content="忽略黑色像素"}
 {Content="Ignore White Pixels"}={Content="忽略白色像素"}
 {Content="Compare Horizontally Flipped"}={Content="比较水平翻转的图像"}
 {Content="Save results on exit"}={Content="退出时保存结果"}
 {Content="Scan against non-existing files"}={Content="扫描不存在的文件"}
 {Content="Scan against entire database"}={Content="扫描整个数据库"}
-
+{Content="More Info"}={Content="更多信息"}
+{Content="File Size (MB):"}={Content="文件大小(MB):"}
+{Content="File Path contains:"}={Content="文件路径包含:"}
+{Content="File Path does NOT contain:"}={Content="文件路径不包含:"}
+{Content="Use Mica (Windows 11 only)¹"}={Content="使用Mica效果(仅限Windows 11)¹"}
+{Content="Dark Mode¹"}={Content="深色模式¹"}
+{Content="Show Thumbnail Column"}={Content="显示缩略图列"}
+{Content="Show Path Column"}={Content="显示路径列"}
+{Content="Show Duration Column"}={Content="显示时长列"}
+{Content="Show Format Column"}={Content="显示格式列"}
+{Content="Show Audio Column"}={Content="显示音频列"}
+{Content="Show Similarity Column"}={Content="显示相似度列"}
 
 {Text="Scanner"}={Text="扫描器"}
 {Text="Scan"}={Text="扫描"}
+{Text="Rescan"}={Text="重新扫描"}
 {Text="Resume"}={Text="继续"}
 {Text="Pause"}={Text="暂停"}
 {Text="Stop"}={Text="停止"}
+{Text="Date Time:"}={Text="日期时间:"}
 {Text="Database"}={Text="数据库"}
 {Text="Cleanup Database"}={Text="清理数据库"}
 {Text="Edit..."}={Text="编辑..."}
@@ -47,9 +68,10 @@
 {Text="Custom Selection"}={Text="自定义选择"}
 {Text="Clear Selection"}={Text="清除选择"}
 {Text="Delete Selection"}={Text="删除所选"}
-{Text="Delete from disk (Shift+Delete)"}={Text="从磁盘删除(不经过回收站)（Shift+Delete）"}
-{Text="Delete permanently from disk"}={Text="永久删除(不经过回收站)（覆写擦除磁盘）"}
-{Text="From List (Keep Files)"}={Text="仅从列表移除（保留文件）"}
+{Text="Delete from disk (Shift+Delete)"}={Text="从磁盘删除（移至回收站）"}
+{Text="Delete from disk (to recycle bin if possible)"}={Text="从磁盘删除（移至回收站）"}
+{Text="Delete permanently from disk"}={Text="永久删除(不经过回收站)"}
+{Text="From List (Keep Files)"}={Text="来自列表（保留文件）"}
 {Text="Copy To Folder (Keep Files)"}={Text="复制到文件夹（保留文件）"}
 {Text="Move To Folder"}={Text="移动到文件夹"}
 {Text="Filter / Sort"}={Text="筛选/排序"}
@@ -60,7 +82,6 @@
 {Text="Type:"}={Text="类型:"}
 {Text="Similarity:"}={Text="相似度:"}
 {Text="to"}={Text="to"}
-{Text="Note: Any action (select, delete etc) will only apply on filtered duplicates"}={Text="注意：所有操作（选择、删除等）仅作用于筛选后的重复项"}
 {Text="Double click to open the file"}={Text="双击打开文件"}
 {Text="Double click to open the file in explorer/shell"}={Text="双击在资源管理器/Shell中打开"}
 {Text="Duration / type"}={Text="时长/类型"}
@@ -74,7 +95,6 @@
 {Text="Audio Channel"}={Text="音频声道"}
 {Text="Audio Sample Rate"}={Text="音频采样率"}
 {Text="Selected Items"}={Text="已选项目"}
-{Text="Delete from disk (to recycle bin if possible)"}={Text="从磁盘删除（尽可能移至回收站）"}
 {Text="Remove from list only"}={Text="仅从列表移除"}
 {Text="Remove from list only and exclude from future scans"}={Text="从列表移除并排除后续扫描"}
 {Text="Remove from list only + create symbol links"}={Text="从列表移除+创建符号链接"}
@@ -104,8 +124,30 @@
 {Text="Appearance"}={Text="外观"}
 {Text="Log"}={Text="日志"}
 {Text="Clear"}={Text="清除"}
-{Text="Save To File"}={Text="保存到文件"}
 {Text="Please Wait"}={Text="请稍候"}
+{Text="Note: Supports the following wildcards: '*' and '?'. The backslash character '\' escapes."}={Text="注意：支持通配符 '*' 和 '?'，反斜杠 '\' 用于转义"}
+{Text="Note: Any action (select, delete etc) will only apply on filtered duplicates"}={Text="注意：所有操作（选择、删除等）仅作用于筛选后的重复项"}
+{Text="Note: These settings apply when files are added to database, not when comparing files against duplicates"}={Text="注意：这些设置仅在文件入库时生效，不影响重复比对过程"}
+
+
+{Header="Thumbnail"}={Header="缩略图"}
+{Header="Date"}={Header="日期"}
+{Header="Path"}={Header="路径"}
+{Header="Similarity"}={Header="相似度"}
+{Header="Rename File"}={Header="重命名文件"}
+{Header="Compare Fullsize Thumbnails"}={Header="比较全尺寸缩略图"}
+{Header="Open In Folder"}={Header="在文件夹中打开"}
+{Header="Copy To Folder..."}={Header="复制到文件夹..."}
+{Header="Move To Folder..."}={Header="移动到文件夹..."}
+{Header="Copy path(s) to clipboard"}={Header="复制路径到剪贴板"}
+{Header="Copy filename(s) to clipboard"}={Header="复制文件名到剪贴板"}
+{Header="Expand all"}={Header="全部展开"}
+{Header="Collapse all"}={Header="全部折叠"}
+{Header="Groups"}={Header="分组"}
+{Header="Selected Group"}={Header="已选分组"}
+{Header="Mark as 'Not a match'"}={Header="标记为'不匹配'"}
+{Header="Open Group"}={Header="打开分组"}
+{Header="Open Group In Folder"}={Header="在文件夹中打开分组"}
 
 
 {ToolTip.Tip="Deactivate to save memory by disabling preview images of duplicates"}={ToolTip.Tip="禁用重复项预览图像以节省内存"}

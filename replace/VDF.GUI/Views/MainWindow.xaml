@@ -121,7 +121,7 @@
                                             <TextBlock
                                                 Margin="5,0,0,0"
                                                 VerticalAlignment="Center"
-                                                Text="Rescan" />
+                                                Text="重新扫描" />
                                         </StackPanel>
                                     </MenuItem.Header>
                                 </MenuItem>
@@ -398,7 +398,7 @@
                                                     ToolTip.Tip="保留最长/最优质文件（优先级：时长>分辨率>FPS>码率>音频码率）。" />
                                             </MenuItem.Header>
                                         </MenuItem>
-                                        <MenuItem Header="Date">
+                                        <MenuItem Header="日期">
                                             <MenuItem Command="{Binding CheckOldestCommand}">
                                                 <MenuItem.Header>
                                                     <TextBlock VerticalAlignment="Center" Text="选择最旧文件" />
@@ -452,19 +452,19 @@
                                         </MenuItem.Header>
                                         <MenuItem Command="{Binding DeleteSelectionCommand}">
                                             <MenuItem.Header>
-                                                <TextBlock VerticalAlignment="Center" Text="从磁盘删除(不经过回收站)（Shift+Delete）" />
+                                                <TextBlock VerticalAlignment="Center" Text="从磁盘删除（移至回收站）" />
                                             </MenuItem.Header>
                                         </MenuItem>
                                         <MenuItem Command="{Binding DeleteSelectionPermanentlyCommand}" IsVisible="{Binding IsWindows}">
                                             <MenuItem.Header>
-                                                <TextBlock VerticalAlignment="Center" Text="永久删除(不经过回收站)（覆写擦除磁盘）" />
+                                                <TextBlock VerticalAlignment="Center" Text="永久删除(不经过回收站)" />
                                             </MenuItem.Header>
                                         </MenuItem>
                                         <MenuItem Header="-" />
 
                                         <MenuItem Command="{Binding RemoveSelectionFromListCommand}">
                                             <MenuItem.Header>
-                                                <TextBlock VerticalAlignment="Center" Text="仅从列表移除（保留文件）" />
+                                                <TextBlock VerticalAlignment="Center" Text="来自列表（保留文件）" />
                                             </MenuItem.Header>
                                         </MenuItem>
                                         <MenuItem Command="{Binding CopySelectionCommand}">
@@ -668,7 +668,7 @@
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
-                                            <DataGridTemplateColumn Header="Thumbnail" IsVisible="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=ShowThumbnailColumn}">
+                                            <DataGridTemplateColumn Header="缩略图" IsVisible="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=ShowThumbnailColumn}">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <LayoutTransformControl>
@@ -694,7 +694,7 @@
                                             </DataGridTemplateColumn>
                                             <DataGridTemplateColumn
                                                 Width="1*"
-                                                Header="Path"
+                                                Header="路径"
                                                 IsVisible="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=ShowPathColumn}">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
@@ -847,15 +847,15 @@
                                             <DataGridTextColumn
                                                 Width="1*"
                                                 Binding="{Binding ItemInfo.Similarity}"
-                                                Header="Similarity"
+                                                Header="相似度"
                                                 IsVisible="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=ShowSimilarityColumn}" />
                                         </DataGrid.Columns>
                                         <DataGrid.ContextMenu>
                                             <ContextMenu>
-                                                <MenuItem Command="{Binding OpenItemInFolderCommand}" Header="Open In Folder" />
+                                                <MenuItem Command="{Binding OpenItemInFolderCommand}" Header="在文件夹中打开" />
                                                 <MenuItem
                                                     Command="{Binding RenameFileCommand}"
-                                                    Header="Rename File"
+                                                    Header="重命名文件"
                                                     InputGesture="F2" />
                                                 <MenuItem>
                                                     <MenuItem.Header>
@@ -882,7 +882,7 @@
                                                                 <TextBlock
                                                                     Margin="5,0,0,0"
                                                                     VerticalAlignment="Center"
-                                                                    Text="从磁盘删除（尽可能移至回收站）" />
+                                                                    Text="从磁盘删除（移至回收站）" />
                                                             </StackPanel>
                                                         </MenuItem.Header>
                                                     </MenuItem>
@@ -897,7 +897,7 @@
                                                                 <TextBlock
                                                                     Margin="5,0,0,0"
                                                                     VerticalAlignment="Center"
-                                                                    Text="永久删除(不经过回收站)（覆写擦除磁盘）" />
+                                                                    Text="永久删除(不经过回收站)" />
                                                             </StackPanel>
                                                         </MenuItem.Header>
                                                     </MenuItem>
@@ -963,12 +963,12 @@
                                                         </MenuItem.Header>
                                                     </MenuItem>
                                                     <Separator />
-                                                    <MenuItem Command="{Binding CopySelectionCommand}" Header="Copy To Folder..." />
-                                                    <MenuItem Command="{Binding MoveSelectionCommand}" Header="Move To Folder..." />
+                                                    <MenuItem Command="{Binding CopySelectionCommand}" Header="复制到文件夹..." />
+                                                    <MenuItem Command="{Binding MoveSelectionCommand}" Header="移动到文件夹..." />
                                                     <Separator />
                                                     <MenuItem
                                                         Command="{Binding ShowGroupInThumbnailComparerCommand}"
-                                                        Header="Compare Fullsize Thumbnails"
+                                                        Header="比较全尺寸缩略图"
                                                         InputGesture="Alt+C" />
                                                 </MenuItem>
                                                 <MenuItem>
@@ -985,31 +985,31 @@
                                                                 Text="复制" />
                                                         </StackPanel>
                                                     </MenuItem.Header>
-                                                    <MenuItem Command="{Binding CopyPathsToClipboardCommand}" Header="Copy path(s) to clipboard" />
-                                                    <MenuItem Command="{Binding CopyFilenamesToClipboardCommand}" Header="Copy filename(s) to clipboard" />
+                                                    <MenuItem Command="{Binding CopyPathsToClipboardCommand}" Header="复制路径到剪贴板" />
+                                                    <MenuItem Command="{Binding CopyFilenamesToClipboardCommand}" Header="复制文件名到剪贴板" />
                                                 </MenuItem>
-                                                <MenuItem Header="Groups">
-                                                    <MenuItem Command="{Binding ExpandAllGroupsCommand}" Header="Expand all" />
-                                                    <MenuItem Command="{Binding CollapseAllGroupsCommand}" Header="Collapse all" />
+                                                <MenuItem Header="分组">
+                                                    <MenuItem Command="{Binding ExpandAllGroupsCommand}" Header="全部展开" />
+                                                    <MenuItem Command="{Binding CollapseAllGroupsCommand}" Header="全部折叠" />
                                                 </MenuItem>
-                                                <MenuItem Header="Selected Group">
+                                                <MenuItem Header="已选分组">
                                                     <MenuItem
                                                         Command="{Binding MarkGroupAsNotAMatchCommand}"
-                                                        Header="Mark as 'Not a match'"
+                                                        Header="标记为'不匹配'"
                                                         ToolTip.Tip="隐藏该组并排除后续扫描（除非出现新重复项）。" />
                                                     <MenuItem
                                                         Command="{Binding OpenGroupCommand}"
                                                         CommandParameter="0"
-                                                        Header="Open Group"
+                                                        Header="打开分组"
                                                         IsVisible="{Binding IsMultiOpenSupported}" />
                                                     <MenuItem
                                                         Command="{Binding OpenGroupCommand}"
                                                         CommandParameter="1"
-                                                        Header="Open Group In Folder"
+                                                        Header="在文件夹中打开分组"
                                                         IsVisible="{Binding IsMultiOpenInFolderSupported}" />
                                                     <MenuItem
                                                         Command="{Binding ShowGroupInThumbnailComparerCommand}"
-                                                        Header="Compare Fullsize Thumbnails"
+                                                        Header="比较全尺寸缩略图"
                                                         InputGesture="Alt+C" />
                                                 </MenuItem>
                                             </ContextMenu>
@@ -1202,7 +1202,7 @@
                                                         ToolTip.Tip="扫描结果变更时自动创建备份" />
                                                     <CheckBox
                                                         VerticalAlignment="Center"
-                                                        Content="使用原生Ffmpeg绑定"
+                                                        Content="使用原生FFmpeg绑定"
                                                         IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=UseNativeFfmpegBinding}"
                                                         IsThreeState="False"
                                                         ToolTip.Tip="启用原生FFmpeg调用（非进程调用），速度极快！警告：需最新SHARED稳定版FFmpeg，否则可能导致VDF崩溃。" />
@@ -1303,7 +1303,7 @@
                                                             Margin="10,0,0,0"
                                                             Classes="hyperlink"
                                                             Command="{Binding OpenHWInfoLinkCommand}"
-                                                            Content="More Info" />
+                                                            Content="更多信息" />
                                                     </StackPanel>
                                                     <ComboBox
                                                         x:Name="ComboboxHardwareAccelerationMode"
@@ -1493,13 +1493,13 @@
                                             Grid.ColumnSpan="4"
                                             Margin="10"
                                             Foreground="{actipro:ThemeResource ControlBackgroundBrushEmphasizedDanger}"
-                                            Text="Note: These settings apply when files are added to database, not when comparing files against duplicates" />
+                                            Text="注意：这些设置仅在文件入库时生效，不影响重复比对过程" />
                                         <CheckBox
                                             x:Name="CheckboxFilterByFileSize"
                                             Grid.Row="1"
                                             Grid.Column="0"
                                             VerticalAlignment="Center"
-                                            Content="File Size (MB):"
+                                            Content="文件大小(MB):"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=FilterByFileSize}"
                                             IsThreeState="False" />
                                         <NumericUpDown
@@ -1533,7 +1533,7 @@
                                             Grid.Row="2"
                                             Grid.Column="0"
                                             VerticalAlignment="Top"
-                                            Content="File Path contains:"
+                                            Content="文件路径包含:"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=FilterByFilePathContains}"
                                             IsThreeState="False" />
                                         <Grid
@@ -1586,14 +1586,14 @@
                                             <TextBlock
                                                 Grid.Row="2"
                                                 Foreground="{actipro:ThemeResource ControlBackgroundBrushSolidWarning}"
-                                                Text="Note: Supports the following wildcards: '*' and '?'. The backslash character '\' escapes." />
+                                                Text="注意：支持通配符 '*' 和 '?'，反斜杠 '\' 用于转义" />
                                         </Grid>
                                         <CheckBox
                                             x:Name="CheckboxFilterByFilePathNotContains"
                                             Grid.Row="3"
                                             Grid.Column="0"
                                             VerticalAlignment="Top"
-                                            Content="File Path does NOT contain:"
+                                            Content="文件路径不包含:"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=FilterByFilePathNotContains}"
                                             IsThreeState="False" />
                                         <Grid
@@ -1646,7 +1646,7 @@
                                             <TextBlock
                                                 Grid.Row="2"
                                                 Foreground="{actipro:ThemeResource ControlBackgroundBrushSolidWarning}"
-                                                Text="Note: Supports the following wildcards: '*' and '?'. The backslash character '\' escapes." />
+                                                Text="注意：支持通配符 '*' 和 '?'，反斜杠 '\' 用于转义" />
                                         </Grid>
                                     </Grid>
                                 </TabItem>
@@ -1660,12 +1660,12 @@
                                     <StackPanel>
                                         <CheckBox
                                             VerticalAlignment="Center"
-                                            Content="Use Mica (Windows 11 only)¹"
+                                            Content="使用Mica效果(仅限Windows 11)¹"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=UseMica}"
                                             IsThreeState="False" />
                                         <CheckBox
                                             VerticalAlignment="Center"
-                                            Content="Dark Mode¹"
+                                            Content="深色模式¹"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=DarkMode}"
                                             IsThreeState="False" />
                                         <TextBlock
@@ -1675,32 +1675,32 @@
                                             Text="¹ Restart VDF to apply changes" />
                                         <CheckBox
                                             VerticalAlignment="Center"
-                                            Content="Show Thumbnail Column"
+                                            Content="显示缩略图列"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=ShowThumbnailColumn}"
                                             IsThreeState="False" />
                                         <CheckBox
                                             VerticalAlignment="Center"
-                                            Content="Show Path Column"
+                                            Content="显示路径列"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=ShowPathColumn}"
                                             IsThreeState="False" />
                                         <CheckBox
                                             VerticalAlignment="Center"
-                                            Content="Show Duration Column"
+                                            Content="显示时长列"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=ShowDurationColumn}"
                                             IsThreeState="False" />
                                         <CheckBox
                                             VerticalAlignment="Center"
-                                            Content="Show Format Column"
+                                            Content="显示格式列"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=ShowFormatColumn}"
                                             IsThreeState="False" />
                                         <CheckBox
                                             VerticalAlignment="Center"
-                                            Content="Show Audio Column"
+                                            Content="显示音频列"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=ShowAudioColumn}"
                                             IsThreeState="False" />
                                         <CheckBox
                                             VerticalAlignment="Center"
-                                            Content="Show Similarity Column"
+                                            Content="显示相似度列"
                                             IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=ShowSimilarityColumn}"
                                             IsThreeState="False" />
                                     </StackPanel>
