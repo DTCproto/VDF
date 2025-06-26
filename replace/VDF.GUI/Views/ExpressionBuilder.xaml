@@ -33,7 +33,7 @@
             <TextBlock
                 Grid.Column="0"
                 VerticalAlignment="Center"
-                Text="Expression: " />
+                Text="表达式: " />
             <TextBox
                 x:Name="TextBoxInput"
                 Grid.Column="1"

@@ -457,7 +457,7 @@
                                         </MenuItem>
                                         <MenuItem Command="{Binding DeleteSelectionPermanentlyCommand}" IsVisible="{Binding IsWindows}">
                                             <MenuItem.Header>
-                                                <TextBlock VerticalAlignment="Center" Text="永久删除(不经过回收站)" />
+                                                <TextBlock VerticalAlignment="Center" Text="永久删除（不经过回收站）" />
                                             </MenuItem.Header>
                                         </MenuItem>
                                         <MenuItem Header="-" />
@@ -602,7 +602,7 @@
                                         <TextBlock
                                             Margin="5,0"
                                             VerticalAlignment="Center"
-                                            Text="to" />
+                                            Text="至" />
                                         <NumericUpDown
                                             Width="140"
                                             FormatString="\{0\}%"
@@ -897,7 +897,7 @@
                                                                 <TextBlock
                                                                     Margin="5,0,0,0"
                                                                     VerticalAlignment="Center"
-                                                                    Text="永久删除(不经过回收站)" />
+                                                                    Text="永久删除（不经过回收站）" />
                                                             </StackPanel>
                                                         </MenuItem.Header>
                                                     </MenuItem>
@@ -1482,7 +1482,7 @@
                                         <TextBlock
                                             VerticalAlignment="Center"
                                             FontSize="12"
-                                            Text="Files" />
+                                            Text="文件" />
                                     </TabItem.Header>
                                     <Grid
                                         ColumnDefinitions="Auto, Auto, Auto, Auto, *"
@@ -1517,7 +1517,7 @@
                                             Grid.Column="2"
                                             Margin="10,0"
                                             VerticalAlignment="Center"
-                                            Text="to" />
+                                            Text="至" />
                                         <NumericUpDown
                                             Grid.Row="1"
                                             Grid.Column="3"

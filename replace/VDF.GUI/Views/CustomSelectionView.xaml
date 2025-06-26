@@ -87,30 +87,30 @@
                         IsChecked="{Binding Data.IgnoreGroupsWithSelectedItems}"
                         IsThreeState="False"
                         ToolTip.Tip="While active any group which contain at least one selected item will be ignored" />
-                    <TextBlock Margin="0,10" Text="File type:" />
+                    <TextBlock Margin="0,10" Text="文件类型:" />
                     <ComboBox MinWidth="200" SelectedIndex="{Binding Data.FileTypeSelection}">
-                        <ComboBoxItem>All</ComboBoxItem>
-                        <ComboBoxItem>Videos</ComboBoxItem>
-                        <ComboBoxItem>Images</ComboBoxItem>
+                        <ComboBoxItem>所有(默认值)</ComboBoxItem>
+                        <ComboBoxItem>视频</ComboBoxItem>
+                        <ComboBoxItem>图像</ComboBoxItem>
                     </ComboBox>
-                    <TextBlock Margin="0,10" Text="Must be identical:" />
+                    <TextBlock Margin="0,10" Text="相同项范围:" />
                     <ComboBox MinWidth="200" SelectedIndex="{Binding Data.IdenticalSelection}">
-                        <ComboBoxItem>Any</ComboBoxItem>
-                        <ComboBoxItem>100% Identical</ComboBoxItem>
-                        <ComboBoxItem>100% Identical except size</ComboBoxItem>
-                        <ComboBoxItem>Not identical</ComboBoxItem>
+                        <ComboBoxItem>任意(默认值)</ComboBoxItem>
+                        <ComboBoxItem>100%相同项</ComboBoxItem>
+                        <ComboBoxItem>100%相同项（大小除外）</ComboBoxItem>
+                        <ComboBoxItem>没有相同项</ComboBoxItem>
                     </ComboBox>
                     <TextBlock Margin="0,10" Text="日期时间:" />
                     <ComboBox MinWidth="200" SelectedIndex="{Binding Data.DateTimeSelection}">
-                        <ComboBoxItem>Ignore</ComboBoxItem>
-                        <ComboBoxItem>Newest</ComboBoxItem>
-                        <ComboBoxItem>Oldest</ComboBoxItem>
+                        <ComboBoxItem>忽略(默认值)</ComboBoxItem>
+                        <ComboBoxItem>最新</ComboBoxItem>
+                        <ComboBoxItem>最旧</ComboBoxItem>
                     </ComboBox>
                     <StackPanel Margin="0,10" Orientation="Horizontal">
                         <TextBlock
                             Margin="0,0,10,0"
                             VerticalAlignment="Center"
-                            Text="Minimum File Size (MB):" />
+                            Text="最小文件大小(MB):" />
                         <NumericUpDown
                             x:Name="NumericUpDownMinimumFileSize"
                             Width="200"
@@ -120,7 +120,7 @@
                         <TextBlock
                             Margin="10,0"
                             VerticalAlignment="Center"
-                            Text="Maximum File Size (MB):" />
+                            Text="最大文件大小(MB):" />
                         <NumericUpDown
                             Width="200"
                             HorizontalAlignment="Left"
@@ -132,7 +132,7 @@
                         <TextBlock
                             Margin="0,0,10,0"
                             VerticalAlignment="Center"
-                            Text="Similarity From:" />
+                            Text="(相似度)从:" />
                         <NumericUpDown
                             Width="200"
                             HorizontalAlignment="Left"
@@ -142,7 +142,7 @@
                         <TextBlock
                             Margin="10,0"
                             VerticalAlignment="Center"
-                            Text="Similarity To:" />
+                            Text="(相似度)至:" />
                         <NumericUpDown
                             Width="200"
                             HorizontalAlignment="Left"
@@ -150,7 +150,7 @@
                             Minimum="0"
                             Value="{Binding Data.SimilarityTo}" />
                     </StackPanel>
-                    <TextBlock Margin="0,10" Text="Path contains:" />
+                    <TextBlock Margin="0,10" Text="路径包含:" />
                     <Grid RowDefinitions="Auto, *, Auto">
                         <Menu Grid.Row="0" MinHeight="30">
                             <MenuItem Command="{Binding AddFilePathContainsTextToListCommand}">
@@ -196,7 +196,7 @@
                             FontStyle="Italic"
                             Text="注意：支持通配符 '*' 和 '?'，反斜杠 '\' 用于转义" />
                     </Grid>
-                    <TextBlock Margin="0,10" Text="Path does NOT contain:" />
+                    <TextBlock Margin="0,10" Text="路径不包含:" />
                     <Grid RowDefinitions="Auto, *, Auto">
                         <Menu Grid.Row="0" MinHeight="30">
                             <MenuItem Command="{Binding AddFilePathNotContainsTextToListCommand}" CommandParameter="{Binding ElementName=ListboxFilePathNotContainsText}">

@@ -41,7 +41,6 @@
 {Text="Resume"}={Text="继续"}
 {Text="Pause"}={Text="暂停"}
 {Text="Stop"}={Text="停止"}
-{Text="Date Time:"}={Text="日期时间:"}
 {Text="Database"}={Text="数据库"}
 {Text="Cleanup Database"}={Text="清理数据库"}
 {Text="Edit..."}={Text="编辑..."}
@@ -70,7 +69,8 @@
 {Text="Delete Selection"}={Text="删除所选"}
 {Text="Delete from disk (Shift+Delete)"}={Text="从磁盘删除（移至回收站）"}
 {Text="Delete from disk (to recycle bin if possible)"}={Text="从磁盘删除（移至回收站）"}
-{Text="Delete permanently from disk"}={Text="永久删除(不经过回收站)"}
+{Text="Delete permanently from disk"}={Text="永久删除（不经过回收站）"}
+{Text="Files"}={Text="文件"}
 {Text="From List (Keep Files)"}={Text="来自列表（保留文件）"}
 {Text="Copy To Folder (Keep Files)"}={Text="复制到文件夹（保留文件）"}
 {Text="Move To Folder"}={Text="移动到文件夹"}
@@ -81,7 +81,7 @@
 {Text="Sort:"}={Text="排序:"}
 {Text="Type:"}={Text="类型:"}
 {Text="Similarity:"}={Text="相似度:"}
-{Text="to"}={Text="to"}
+{Text="to"}={Text="至"}
 {Text="Double click to open the file"}={Text="双击打开文件"}
 {Text="Double click to open the file in explorer/shell"}={Text="双击在资源管理器/Shell中打开"}
 {Text="Duration / type"}={Text="时长/类型"}
@@ -128,6 +128,17 @@
 {Text="Note: Supports the following wildcards: '*' and '?'. The backslash character '\' escapes."}={Text="注意：支持通配符 '*' 和 '?'，反斜杠 '\' 用于转义"}
 {Text="Note: Any action (select, delete etc) will only apply on filtered duplicates"}={Text="注意：所有操作（选择、删除等）仅作用于筛选后的重复项"}
 {Text="Note: These settings apply when files are added to database, not when comparing files against duplicates"}={Text="注意：这些设置仅在文件入库时生效，不影响重复比对过程"}
+
+{Text="Expression: "}={Text="表达式: "}
+{Text="File type:"}={Text="文件类型:"}
+{Text="Must be identical:"}={Text="相同项范围:"}
+{Text="Date Time:"}={Text="日期时间:"}
+{Text="Minimum File Size (MB):"}={Text="最小文件大小(MB):"}
+{Text="Maximum File Size (MB):"}={Text="最大文件大小(MB):"}
+{Text="Similarity From:"}={Text="(相似度)从:"}
+{Text="Similarity To:"}={Text="(相似度)至:"}
+{Text="Path contains:"}={Text="路径包含:"}
+{Text="Path does NOT contain:"}={Text="路径不包含:"}
 
 
 {Header="Thumbnail"}={Header="缩略图"}
@@ -184,3 +195,16 @@
 {ToolTip.Tip="Links all selected items to the first unselected item in each group."}={ToolTip.Tip="将选定项链接至组内首个未选项。"}
 {ToolTip.Tip="Hides this group and exclude it from future scans, except when there is a new duplicate."}={ToolTip.Tip="隐藏该组并排除后续扫描（除非出现新重复项）。"}
 {ToolTip.Tip="Note: Settings are automatically saved on normal exit"}={ToolTip.Tip="注意：正常退出时设置自动保存"}
+
+
+{<ComboBoxItem>All</ComboBoxItem>}={<ComboBoxItem>所有(默认值)</ComboBoxItem>}
+{<ComboBoxItem>Videos</ComboBoxItem>}={<ComboBoxItem>视频</ComboBoxItem>}
+{<ComboBoxItem>Images</ComboBoxItem>}={<ComboBoxItem>图像</ComboBoxItem>}
+{<ComboBoxItem>Any</ComboBoxItem>}={<ComboBoxItem>任意(默认值)</ComboBoxItem>}
+{<ComboBoxItem>100% Identical</ComboBoxItem>}={<ComboBoxItem>100%相同项</ComboBoxItem>}
+{<ComboBoxItem>100% Identical except size</ComboBoxItem>}={<ComboBoxItem>100%相同项（大小除外）</ComboBoxItem>}
+{<ComboBoxItem>Not identical</ComboBoxItem>}={<ComboBoxItem>没有相同项</ComboBoxItem>}
+{<ComboBoxItem>Ignore</ComboBoxItem>}={<ComboBoxItem>忽略(默认值)</ComboBoxItem>}
+{<ComboBoxItem>Newest</ComboBoxItem>}={<ComboBoxItem>最新</ComboBoxItem>}
+{<ComboBoxItem>Oldest</ComboBoxItem>}={<ComboBoxItem>最旧</ComboBoxItem>}
+
