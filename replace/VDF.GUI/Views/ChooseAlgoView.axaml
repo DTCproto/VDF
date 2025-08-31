@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:Settings="clr-namespace:VDF.GUI.Data;assembly=VDF.GUI"
+		xmlns:app="clr-namespace:VDF.GUI;assembly=VDF.GUI"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="VDF.GUI.Views.ChooseAlgoView"
+		MaxWidth="600"
+		WindowStartupLocation="CenterOwner"
+		SizeToContent="WidthAndHeight"
+		Padding="20"
+        Title="Choose Algorithm View">
+		<StackPanel >
+			<TextBlock  Margin="0,5" TextWrapping="Wrap" Text="请选择您的 graybyte 数据库格式。您以后无法切换。唯一的方法是删除整个数据库并从头开始。两者都使用视觉相似性帧检查作为默认算法。在这两种情况下，即使分辨率不同、添加了水印、帧率/比特率发生变化等，您都可以找到重复项。"/>
+			<RadioButton x:Name="Cb16x16"
+					  Margin="0,5"
+					  Content="16x16"/>
+			<TextBlock TextWrapping="Wrap" Margin="30,5" xml:space="preserve">• 速度最快
+• 误报率更高
+• pHash 算法不可用
+			</TextBlock>
+			<RadioButton  x:Name="Cb32x32"
+					   Content="32x32 (recommmended)"
+					   IsChecked="true"/>
+			<TextBlock TextWrapping="Wrap" Margin="30,5" xml:space="preserve">• 比 16x16 慢（理论上慢 4 倍，但实际上在大多数情况下扫描时间增加 40-60%）
+• 误报率更低
+• 提供 pHash 算法。当重复文件因对比度、亮度、缩放比例或细微编辑而发生变化时，该算法更加稳健（但并非一定更好，只是工作方式不同）
+• 首次将视频添加到数据库时，会自动生成 pHash 签名，这会使初始扫描速度变慢。后续重新扫描时，您可以在两种算法之间切换，且性能成本几乎可以忽略不计，从而实现高效的重复文件检测
+			</TextBlock>
+			<Button MaxWidth="300" Margin="0,5" Content="{Binding Source={x:Static app:App.Lang}, Path=[Dialog.OK]}" Click="Button_Click"/>
+		</StackPanel>
+</Window>

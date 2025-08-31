@@ -34,6 +34,7 @@
 {Content="Show Format Column"}={Content="显示格式列"}
 {Content="Show Audio Column"}={Content="显示音频列"}
 {Content="Show Similarity Column"}={Content="显示相似度列"}
+{Content="Use pHash instead of visual similarity"}={Content="使用 pHash 代替视觉相似性"}
 
 {Text="Scanner"}={Text="扫描器"}
 {Text="Scan"}={Text="扫描"}
@@ -129,6 +130,8 @@
 {Text="Note: Any action (select, delete etc) will only apply on filtered duplicates"}={Text="注意：所有操作（选择、删除等）仅作用于筛选后的重复项"}
 {Text="Note: These settings apply when files are added to database, not when comparing files against duplicates"}={Text="注意：这些设置仅在文件入库时生效，不影响重复比对过程"}
 
+{Text="Please choose your graybyte database format. You cannot switch between them later on. The only way is to delete the entire database and start from scratch. Both use visual similarity frame check as default algorithm. In both cases you can find duplicates even if different resolution, added watermark, changes to fps / bitrate etc"}={Text="请选择您的 graybyte 数据库格式。您以后无法切换。唯一的方法是删除整个数据库并从头开始。两者都使用视觉相似性帧检查作为默认算法。在这两种情况下，即使分辨率不同、添加了水印、帧率/比特率发生变化等，您都可以找到重复项。"}
+
 {Text="Expression: "}={Text="表达式: "}
 {Text="File type:"}={Text="文件类型:"}
 {Text="Must be identical:"}={Text="相同项范围:"}
@@ -179,13 +182,14 @@
 {ToolTip.Tip="Minimum percentage that thumbnails must match before they are considered duplicates"}={ToolTip.Tip="缩略图相似度阈值（达到此百分比视为重复）"}
 {ToolTip.Tip="Only scan videos against each other where the duration is not bigger/smaller than X %"}={ToolTip.Tip="仅比对时长差异不超过X%的视频"}
 {ToolTip.Tip="Number of thumbnails generated per file. This only applies to video files. A high number means that the scan takes longer but also the chance of a 'false positive' decreases."}={ToolTip.Tip="每文件生成缩略图数量（仅视频）。数值越高查准率越高，扫描越慢。"}
-{ToolTip.Tip="Limits the amount of concurrent tasks. A value of -1 leaves it up to the system to decide, a value of 1 is most stable."}={ToolTip.Tip="并发任务数限制：-1=系统自动分配，1=最稳定。"}
-={ToolTip.Tip="FF(mpeg/probe) arguments passed to the end of the internal arguments. Most users can leave this empty."}={ToolTip.Tip="追加到FFmpeg/FFprobe内部参数后的自定义参数（多数用户可留空）。"}
+{ToolTip.Tip="Limits the amount of concurrent tasks. A value of -1 leaves it up to the system to decide, a value of 1 is most stable."}={ToolTip.Tip="限制并发任务数量：值为 -1 时由系统自行决定，值为 1 时最稳定。"}
+{ToolTip.Tip="FF(mpeg/probe) arguments passed to the end of the internal arguments. Most users can leave this empty."}={ToolTip.Tip="追加到FFmpeg/FFprobe内部参数后的自定义参数（多数用户可留空）。"}
 {ToolTip.Tip="Hardware acceleration mode of ffmpeg"}={ToolTip.Tip="FFmpeg硬件加速模式"}
 {ToolTip.Tip="Enter your own commands to open single or multiple files."}={ToolTip.Tip="自定义打开单文件/多文件的命令。"}
 {ToolTip.Tip="E.g.: 'nemo --tabs %f', where '%f' is the placeholder for the file(s)"}={ToolTip.Tip="示例：'nemo --tabs %f'（%f=文件占位符）"}
 {ToolTip.Tip="Specify a custom database folder. Otherwise it uses the current VDF folder."}={ToolTip.Tip="指定自定义数据库目录（默认使用VDF所在目录）。"}
-
+{ToolTip.Tip="Limits the amount of concurrent tasks. A value of -1 leaves it up to the system to decide (takes full speed), a value of 1 is most stable (lets you interact with your system while scan runs in background). Maximum should be the amount of physical cores of your CPU."}={ToolTip.Tip="限制并发任务数量：值为 -1 时，由系统自行决定（以全速运行）；值为 1 时，最稳定（允许扫描在后台运行时，您与系统进行交互）。最大值应为 CPU 的物理核心数量。"}
+{ToolTip.Tip="pHash = slower but more robust to re-encoding, resizing, contrast changes etc. Visual similarity = faster, also works on reencoded videos, watermarks etc but less robust. Ignored if you're using an old database with 16x16 graybyte values."}={ToolTip.Tip="pHash = 速度较慢，但​​对重新编码、调整大小、对比度变化等操作更稳健。视觉相似性 = 速度较快，也适用于重新编码的视频、水印等操作，但稳健性较差。如果您使用的是包含 16x16 灰度字节值的旧数据库，请忽略此参数。"}
 
 {ToolTip.Tip="Re-run the scan but without enumerating and gathering file informations. Changing certain settings will only take effect during a full scan."}={ToolTip.Tip="重新扫描（跳过文件枚举）。部分设置需完整扫描才生效。"}
 {ToolTip.Tip="Removes entries which file no longer exists or which failed on ffmpeg/ffprobe"}={ToolTip.Tip="移除文件不存在或FFmpeg/FFprobe处理失败的条目"}
@@ -195,6 +199,15 @@
 {ToolTip.Tip="Links all selected items to the first unselected item in each group."}={ToolTip.Tip="将选定项链接至组内首个未选项。"}
 {ToolTip.Tip="Hides this group and exclude it from future scans, except when there is a new duplicate."}={ToolTip.Tip="隐藏该组并排除后续扫描（除非出现新重复项）。"}
 {ToolTip.Tip="Note: Settings are automatically saved on normal exit"}={ToolTip.Tip="注意：正常退出时设置自动保存"}
+
+
+{• Fastest}={• 速度最快}
+{• More false positives}={• 误报率更高}
+{• pHash algorithm is NOT available}={• pHash 算法不可用}
+{• Slower than 16x16 (theoretically 4x slower but practically in most cases +40-60% additional scan time)}={• 比 16x16 慢（理论上慢 4 倍，但实际上在大多数情况下扫描时间增加 40-60%）}
+{• Less false positives}={• 误报率更低}
+{• pHash algorithm is available. More robust when duplicates differ due to changes in contrast, brightness, scaling, or minor edits (but not automatically better, it just works differently)}={• 提供 pHash 算法。当重复文件因对比度、亮度、缩放比例或细微编辑而发生变化时，该算法更加稳健（但并非一定更好，只是工作方式不同）}
+{• When a video is first added to the database, pHash signature is automatically generated, making the initial scan slower. On subsequent rescans, you can switch between both algorithms with negligible performance cost, enabling highly efficient duplicate detection}={• 首次将视频添加到数据库时，会自动生成 pHash 签名，这会使初始扫描速度变慢。后续重新扫描时，您可以在两种算法之间切换，且性能成本几乎可以忽略不计，从而实现高效的重复文件检测}
 
 
 {<ComboBoxItem>All</ComboBoxItem>}={<ComboBoxItem>所有(默认值)</ComboBoxItem>}
@@ -207,4 +220,8 @@
 {<ComboBoxItem>Ignore</ComboBoxItem>}={<ComboBoxItem>忽略(默认值)</ComboBoxItem>}
 {<ComboBoxItem>Newest</ComboBoxItem>}={<ComboBoxItem>最新</ComboBoxItem>}
 {<ComboBoxItem>Oldest</ComboBoxItem>}={<ComboBoxItem>最旧</ComboBoxItem>}
+
+
+{FileName = "https://github.com/0x90d/videoduplicatefinder/releases"}={FileName = "https://github.com/DTCproto/VDF/releases"}
+{Show("Failed to open URL: https://github.com/0x90d/videoduplicatefinder/releases")}={Show("Failed to open URL: https://github.com/DTCproto/VDF/releases")}
 

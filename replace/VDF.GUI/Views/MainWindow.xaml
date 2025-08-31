@@ -1041,10 +1041,10 @@
                                                         ToolTip.Tip="扫描整个数据库（除非通过排除列表/路径过滤等设置跳过数据库文件）" />
                                                     <CheckBox
                                                         VerticalAlignment="Center"
-                                                        Content="Use pHash instead of visual similarity"
+                                                        Content="使用 pHash 代替视觉相似性"
                                                         IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=UsePHash}"
                                                         IsThreeState="False"
-                                                        ToolTip.Tip="pHash = slower but more robust to re-encoding, resizing, contrast changes etc. Visual similarity = faster, also works on reencoded videos, watermarks etc but less robust. Ignored if you're using an old database with 16x16 graybyte values." />
+                                                        ToolTip.Tip="pHash = 速度较慢，但​​对重新编码、调整大小、对比度变化等操作更稳健。视觉相似性 = 速度较快，也适用于重新编码的视频、水印等操作，但稳健性较差。如果您使用的是包含 16x16 灰度字节值的旧数据库，请忽略此参数。" />
                                                 </StackPanel>
                                                 <StackPanel Grid.Column="1" Margin="15,5,0,0">
                                                     <TextBlock VerticalAlignment="Center" Text="差异百分比:" />
@@ -1092,13 +1092,13 @@
                                                         VerticalAlignment="Center"
                                                         Maximum="100"
                                                         Minimum="-1"
-                                                        ToolTip.Tip="Limits the amount of concurrent tasks. A value of -1 leaves it up to the system to decide (takes full speed), a value of 1 is most stable (lets you interact with your system while scan runs in background). Maximum should be the amount of physical cores of your CPU."
+                                                        ToolTip.Tip="限制并发任务数量：值为 -1 时，由系统自行决定（以全速运行）；值为 1 时，最稳定（允许扫描在后台运行时，您与系统进行交互）。最大值应为 CPU 的物理核心数量。"
                                                         Value="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=MaxDegreeOfParallelism}" />
                                                     <TextBlock VerticalAlignment="Center" Text="自定义FF参数:" />
                                                     <TextBox
                                                         VerticalAlignment="Center"
                                                         Text="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=CustomFFArguments}"
-                                                        ToolTip.Tip="FF(mpeg/probe) arguments passed to the end of the internal arguments. Most users can leave this empty." />
+                                                        ToolTip.Tip="追加到FFmpeg/FFprobe内部参数后的自定义参数（多数用户可留空）。" />
                                                     <StackPanel Orientation="Horizontal">
                                                         <TextBlock
                                                             VerticalAlignment="Center"
