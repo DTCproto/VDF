@@ -88,7 +88,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: app/src/videoduplicatefinder/App-*
           body: |
-            Note: These are daily builds. Attachments are automatically created and replaced on every new commit. Regardless of what the message above says. If you experience upgrade issues you may need to delete your 'ScannedFiles.db' file in VDF folder.
-            Last build based on ${{ env.vdf_sha_short }}
+            [Last build based on ${{ env.vdf_sha_short }}]
+            Note: 
+            [Attachments are automatically created and replaced on every new commit.]
+            Regardless of what the message above says. 
+            If you experience upgrade issues you may need to delete your 'ScannedFiles.db' file in VDF folder.
 
 
