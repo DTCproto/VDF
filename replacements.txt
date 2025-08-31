@@ -209,6 +209,13 @@
 {• pHash algorithm is available. More robust when duplicates differ due to changes in contrast, brightness, scaling, or minor edits (but not automatically better, it just works differently)}={• 提供 pHash 算法。当重复文件因对比度、亮度、缩放比例或细微编辑而发生变化时，该算法更加稳健（但并非一定更好，只是工作方式不同）}
 {• When a video is first added to the database, pHash signature is automatically generated, making the initial scan slower. On subsequent rescans, you can switch between both algorithms with negligible performance cost, enabling highly efficient duplicate detection}={• 首次将视频添加到数据库时，会自动生成 pHash 签名，这会使初始扫描速度变慢。后续重新扫描时，您可以在两种算法之间切换，且性能成本几乎可以忽略不计，从而实现高效的重复文件检测}
 
+{StringFormat=Selected Duplicates:}={StringFormat=选定的重复项:}
+{StringFormat=Duplicates:}={StringFormat=重复项:}
+{StringFormat=Duplicate Groups:}={StringFormat=重复组:}
+{StringFormat=Size:}={StringFormat=大小:}
+{StringFormat=Size Removed:}={StringFormat=已移除大小:}
+{StringFormat=Elapsed time:}={StringFormat=已用时间:}
+{StringFormat=Remaining time:}={StringFormat=剩余时间:}
 
 {<ComboBoxItem>All</ComboBoxItem>}={<ComboBoxItem>所有(默认值)</ComboBoxItem>}
 {<ComboBoxItem>Videos</ComboBoxItem>}={<ComboBoxItem>视频</ComboBoxItem>}
@@ -225,3 +232,4 @@
 {FileName = "https://github.com/0x90d/videoduplicatefinder/releases"}={FileName = "https://github.com/DTCproto/VDF/releases"}
 {Show("Failed to open URL: https://github.com/0x90d/videoduplicatefinder/releases")}={Show("Failed to open URL: https://github.com/DTCproto/VDF/releases")}
 
+{Update="Assets\Locales\en.json"}={Update="Assets\Locales\zh-cn.json"}

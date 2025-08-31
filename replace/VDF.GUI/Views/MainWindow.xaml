@@ -817,29 +817,29 @@
                                     MinHeight="20"
                                     Margin="0,5,0,0"
                                     Orientation="Horizontal">
-                                    <TextBlock Text="{Binding DuplicatesSelectedCounter, Mode=OneWay, StringFormat=Selected Duplicates: \{0\}}" />
+                                    <TextBlock Text="{Binding DuplicatesSelectedCounter, Mode=OneWay, StringFormat=选定的重复项: \{0\}}" />
                                 </StackPanel>
                                 <StackPanel
                                     Grid.Row="1"
                                     MinHeight="20"
                                     Margin="0,5,0,0"
                                     Orientation="Horizontal">
-                                    <TextBlock Text="{Binding TotalDuplicates, Mode=OneWay, StringFormat=Duplicates: \{0\}}" />
+                                    <TextBlock Text="{Binding TotalDuplicates, Mode=OneWay, StringFormat=重复项: \{0\}}" />
                                     <Border
                                         Width="1"
                                         Margin="5,0"
                                         Background="{actipro:ThemeResource ButtonForegroundBrush}" />
-                                    <TextBlock Text="{Binding TotalDuplicateGroups, Mode=OneWay, StringFormat=Duplicate Groups: \{0\}}" />
+                                    <TextBlock Text="{Binding TotalDuplicateGroups, Mode=OneWay, StringFormat=重复组: \{0\}}" />
                                     <Border
                                         Width="1"
                                         Margin="5,0"
                                         Background="{actipro:ThemeResource ButtonForegroundBrush}" />
-                                    <TextBlock Text="{Binding TotalDuplicatesSize, Mode=OneWay, StringFormat=Size: \{0\}}" />
+                                    <TextBlock Text="{Binding TotalDuplicatesSize, Mode=OneWay, StringFormat=大小: \{0\}}" />
                                     <Border
                                         Width="1"
                                         Margin="5,0"
                                         Background="{actipro:ThemeResource ButtonForegroundBrush}" />
-                                    <TextBlock Text="{Binding TotalSizeRemoved, Mode=OneWay, StringFormat=Size Removed: \{0\}}" />
+                                    <TextBlock Text="{Binding TotalSizeRemoved, Mode=OneWay, StringFormat=已移除大小: \{0\}}" />
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Row="3" Margin="0,5,0,0">
@@ -853,12 +853,12 @@
                                         Width="1"
                                         Margin="5,0"
                                         Background="{actipro:ThemeResource ButtonForegroundBrush}" />
-                                    <TextBlock Text="{Binding TimeElapsed, Mode=OneWay, StringFormat=Elapsed time: {0:c}}" />
+                                    <TextBlock Text="{Binding TimeElapsed, Mode=OneWay, StringFormat=已用时间: {0:c}}" />
                                     <Border
                                         Width="1"
                                         Margin="5,0"
                                         Background="{actipro:ThemeResource ButtonForegroundBrush}" />
-                                    <TextBlock Text="{Binding RemainingTime, Mode=OneWay, StringFormat=Remaining time: ~{0:c}}" />
+                                    <TextBlock Text="{Binding RemainingTime, Mode=OneWay, StringFormat=剩余时间: ~{0:c}}" />
                                     <Border
                                         Width="1"
                                         Margin="5,0"

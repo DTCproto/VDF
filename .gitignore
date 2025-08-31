@@ -27,7 +27,6 @@ go.work.sum
 .vscode
 .idea/
 
-assets/
 
 # Ignore backup and temporary files
 *~
