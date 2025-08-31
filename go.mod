@@ -1,5 +1,5 @@
 module VDF
 
-go 1.24.2
+go 1.25
 
-require golang.org/x/text v0.25.0
+require golang.org/x/text v0.28.0
