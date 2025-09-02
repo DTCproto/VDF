@@ -241,6 +241,7 @@
 {"QualityOrderDialog.BtnMoveUp": "Move Up"}={"QualityOrderDialog.BtnMoveUp": "上移"}
 {"QualityOrderDialog.BtnMoveDown": "Move Down"}={"QualityOrderDialog.BtnMoveDown": "下移"}
 {"QualityOrderDialog.Description": "Please arrange the quality criteria in order of priority (highest quality first)"}={"QualityOrderDialog.Description": "请按照优先级排列质量标准（优先级高的在前）"}
+{"ThumbnailComparerDialog.SelectTwoElementsMessage": "Please select two items first to use this mode."}={"ThumbnailComparerDialog.SelectTwoElementsMessage": "请先选择两个项目才能使用此模式。"}
 {"DuplicateList.FilePath.Tooltip.OpenInExplorer": "Double click to open the file in explorer/shell"}={"DuplicateList.FilePath.Tooltip.OpenInExplorer": "双击在资源管理器/终端中打开文件"}
 {"DuplicateList.Thumbnail.Tooltip.OpenFile": "Double click to open the file"}={"DuplicateList.Thumbnail.Tooltip.OpenFile": "双击打开文件"}
 {"DuplicateList.Header.DurationType": "Duration / type"}={"DuplicateList.Header.DurationType": "时长/类型"}
