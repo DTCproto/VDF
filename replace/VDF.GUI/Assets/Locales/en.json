@@ -4,6 +4,7 @@
 	"Dialog.Yes": "是",
 	"Dialog.No": "否",
 	"Dialog.Cancel": "取消",
+	"Dialog.SelectFolder": "选择文件夹",
 	"QualityOrderDialog.Title": "选择质量标准优先级",
 	"QualityOrderDialog.BtnMoveUp": "上移",
 	"QualityOrderDialog.BtnMoveDown": "下移",

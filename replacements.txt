@@ -277,3 +277,4 @@
 {"BusyMessages18": "Outsmarting copy–paste’s greatest hits."}={"BusyMessages18": "正在比对复制文件……"}
 {"BusyMessages19": "Because two of the same is one too many."}={"BusyMessages19": "正在清理冗余文件……"}
 {"BusyMessages20": "Stay calm—your files are about to make sense."}={"BusyMessages20": "正在优化文件管理……"}
+{"Dialog.SelectFolder": "Select Folder"}={"Dialog.SelectFolder": "选择文件夹"}

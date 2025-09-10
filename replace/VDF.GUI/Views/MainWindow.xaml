@@ -206,6 +206,14 @@
                                                 Text="编辑..." />
                                         </MenuItem.Header>
                                     </MenuItem>
+                                    <MenuItem Command="{Binding RelocateDatabaseFilesCommand}">
+                                        <MenuItem.Header>
+                                            <TextBlock
+                                                Margin="5,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Text="Relocate Files" />
+                                        </MenuItem.Header>
+                                    </MenuItem>
                                     <Separator />
                                     <MenuItem Command="{Binding ExportDataBaseToJsonCommand}">
                                         <MenuItem.Header>
@@ -612,6 +620,7 @@
                                             <KeyBinding Command="{Binding DeleteSelectionCommand}" Gesture="Shift+Delete" />
                                             <KeyBinding Command="{Binding DeleteHighlightedCommand}" Gesture="Control+Delete" />
                                             <KeyBinding Command="{Binding ShowGroupInThumbnailComparerCommand}" Gesture="Alt+C" />
+                                            <KeyBinding Command="{Binding MarkGroupAsNotAMatchCommand}" Gesture="Alt+X" />
                                         </TreeDataGrid.KeyBindings>
                                         <TreeDataGrid.ContextMenu>
                                             <ContextMenu>
@@ -766,6 +775,7 @@
                                                     <MenuItem
                                                         Command="{Binding MarkGroupAsNotAMatchCommand}"
                                                         Header="标记为'不匹配'"
+                                                        InputGesture="Alt+X"
                                                         ToolTip.Tip="隐藏该组并排除后续扫描（除非出现新重复项）。" />
                                                     <MenuItem
                                                         Command="{Binding OpenGroupCommand}"
