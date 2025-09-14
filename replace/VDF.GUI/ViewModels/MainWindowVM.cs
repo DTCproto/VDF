@@ -239,16 +239,16 @@ namespace VDF.GUI.ViewModels {
 
 			SortOrders = [
 				new("None", (a, b) => 0),
-				new("Size Ascending", (a, b) => CompareLeafBy<long>(a, b, vm => vm.ItemInfo.SizeLong)),
-				new("Size Descending", (a, b) => CompareLeafBy<long>(a, b, vm => vm.ItemInfo.SizeLong, desc: true)),
-				new("Resolution Ascending", (a, b) => CompareLeafBy<int>(a, b, vm => vm.ItemInfo.FrameSizeInt)),
-				new("Resolution Descending", (a, b) => CompareLeafBy<int>(a, b, vm => vm.ItemInfo.FrameSizeInt, desc: true)),
-				new("Duration Ascending", (a, b) => CompareLeafBy<TimeSpan>(a, b, vm => vm.ItemInfo.Duration)),
-				new("Duration Descending", (a, b) => CompareLeafBy<TimeSpan>(a, b, vm => vm.ItemInfo.Duration, desc: true)),
-				new("Date Created Ascending", (a, b) => CompareLeafBy<DateTime>(a, b, vm => vm.ItemInfo.DateCreated)),
-				new("Date Created Descending", (a, b) => CompareLeafBy<DateTime>(a, b, vm => vm.ItemInfo.DateCreated, desc: true)),
-				new("Similarity Ascending", (a, b) => CompareLeafBy<float>(a, b, vm => vm.ItemInfo.Similarity)),
-				new("Similarity Descending", (a, b) => CompareLeafBy<float>(a, b, vm => vm.ItemInfo.Similarity, desc: true)),
+				new("Size Ascending", (a, b) => CompareBy<long>(a, b, vm => vm.ItemInfo.SizeLong)),
+				new("Size Descending", (a, b) => CompareBy<long>(a, b, vm => vm.ItemInfo.SizeLong, desc: true)),
+				new("Resolution Ascending", (a, b) => CompareBy<int>(a, b, vm => vm.ItemInfo.FrameSizeInt)),
+				new("Resolution Descending", (a, b) => CompareBy<int>(a, b, vm => vm.ItemInfo.FrameSizeInt, desc: true)),
+				new("Duration Ascending", (a, b) => CompareBy<TimeSpan>(a, b, vm => vm.ItemInfo.Duration)),
+				new("Duration Descending", (a, b) => CompareBy<TimeSpan>(a, b, vm => vm.ItemInfo.Duration, desc: true)),
+				new("Date Created Ascending", (a, b) => CompareBy<DateTime>(a, b, vm => vm.ItemInfo.DateCreated)),
+				new("Date Created Descending", (a, b) => CompareBy<DateTime>(a, b, vm => vm.ItemInfo.DateCreated, desc: true)),
+				new("Similarity Ascending", (a, b) => CompareBy<float>(a, b, vm => vm.ItemInfo.Similarity)),
+				new("Similarity Descending", (a, b) => CompareBy<float>(a, b, vm => vm.ItemInfo.Similarity, desc: true)),
 				new("Group Has Selected Items Ascending",  (ga,gb) => CompareGroupsByInt(ga, gb, g => GroupHasChecked(g) ? 1 : 0)),
 				new("Group Has Selected Items Descending", (ga,gb) => CompareGroupsByInt(ga, gb, g => GroupHasChecked(g) ? 1 : 0, desc:true)),
 				new("Group Size Ascending",  (ga,gb) => CompareGroupsByInt(ga, gb, g => g.Children.Count)),
@@ -280,9 +280,13 @@ namespace VDF.GUI.ViewModels {
 									var tb = new TextBlock
 									{
 										FontWeight = FontWeight.Bold,
-										Margin = new Thickness(8, 0, 0, 0)
+										Margin = new Thickness(8, 0, 0, 0),
+										Text = string.Empty
 									};
-									tb.Bind(TextBlock.TextProperty, new Binding(nameof(RowNode.Header)));
+									tb.Bind(TextBlock.TextProperty, new Binding(nameof(RowNode.Header)) {
+										TargetNullValue = string.Empty,
+										FallbackValue  = string.Empty
+									});
 									return tb;
 								}
 
@@ -320,12 +324,26 @@ namespace VDF.GUI.ViewModels {
 						{
 							if (n is null || n.IsGroup) return new Panel();
 
-							var path = new TextBlock
+							//var path = new TextBlock
+							//{
+							//	TextWrapping = TextWrapping.Wrap,
+							//	Margin = new Thickness(4, 0, 0, 0),
+							//	Text = string.Empty,
+
+							//};
+							var path = new SelectableTextBlock
 							{
-								TextWrapping = TextWrapping.Wrap,
-								Margin = new Thickness(4, 0, 0, 0),
+								Text            = string.Empty,
+								TextWrapping    = TextWrapping.WrapWithOverflow,
+								Margin          = new Thickness(4, 0, 0, 0),
+								FlowDirection   = FlowDirection.LeftToRight,
 							};
-							path.Bind(TextBlock.TextProperty, new Binding("Item.ItemInfo.Path") { TargetNullValue = string.Empty, FallbackValue = string.Empty });
+							path.Bind(TextBlock.TextProperty, new Binding("Item.ItemInfo.Path") {
+								Converter = PathDisplaySanitizer.Instance,
+								TargetNullValue = string.Empty,
+								FallbackValue = string.Empty
+							});
+
 
 							path.DoubleTapped += (_, e) =>
 							{
@@ -366,7 +384,7 @@ namespace VDF.GUI.ViewModels {
 							sp.Children.Add(tDur);
 
 							//Resolution
-							var tRes = new TextBlock { Margin = new Thickness(0) };
+							var tRes = new TextBlock();
 							tRes.Bind(TextBlock.TextProperty, new Binding("Item.ItemInfo.FrameSize") { TargetNullValue = string.Empty, FallbackValue = string.Empty });
 							tRes.Bind(TextBlock.ForegroundProperty, new Binding("Item.ItemInfo.IsBestFrameSize"){ Converter = IsBestConverter });
 							sp.Children.Add(tRes);
@@ -663,6 +681,7 @@ namespace VDF.GUI.ViewModels {
 		}
 
 		private void DetachChecked(DuplicateItemVM vm) {
+			vm.Checked = false;
 			vm.PropertyChanged -= Vm_PropertyChanged;
 		}
 		private void DetachAllCheckedHandlers() {
