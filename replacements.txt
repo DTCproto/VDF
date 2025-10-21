@@ -29,11 +29,11 @@
 {Content="Use Mica (Windows 11 only)¹"}={Content="使用Mica效果(仅限Windows 11)¹"}
 {Content="Dark Mode¹"}={Content="深色模式¹"}
 {Content="Show Thumbnail Column"}={Content="显示缩略图列"}
-{Content="Show Path Column"}={Content="显示路径列"}
-{Content="Show Duration Column"}={Content="显示时长列"}
-{Content="Show Format Column"}={Content="显示格式列"}
-{Content="Show Audio Column"}={Content="显示音频列"}
-{Content="Show Similarity Column"}={Content="显示相似度列"}
+{Content="Show Path Column¹"}={Content="显示路径列¹"}
+{Content="Show Duration Column¹"}={Content="显示时长列¹"}
+{Content="Show Format Column¹"}={Content="显示格式列¹"}
+{Content="Show Audio Column¹"}={Content="显示音频列¹"}
+{Content="Show Similarity Column¹"}={Content="显示相似度列¹"}
 {Content="Use pHash instead of visual similarity"}={Content="使用 pHash 代替视觉相似性"}
 
 {Text="Scanner"}={Text="扫描器"}
@@ -142,7 +142,7 @@
 {Text="Similarity To:"}={Text="(相似度)至:"}
 {Text="Path contains:"}={Text="路径包含:"}
 {Text="Path does NOT contain:"}={Text="路径不包含:"}
-
+{Text="¹ Restart VDF to apply changes"}={Text="¹ 重新启动VDF以应用更改"}
 
 {Header="Thumbnail"}={Header="缩略图"}
 {Header="Date"}={Header="日期"}
