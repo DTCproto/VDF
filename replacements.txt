@@ -35,6 +35,7 @@
 {Content="Show Audio Column¹"}={Content="显示音频列¹"}
 {Content="Show Similarity Column¹"}={Content="显示相似度列¹"}
 {Content="Use pHash instead of visual similarity"}={Content="使用 pHash 代替视觉相似性"}
+{Content="Use EXIF Creation Date for Images"}={Content="对图像使用 EXIF 创建日期"}
 
 {Text="Scanner"}={Text="扫描器"}
 {Text="Scan"}={Text="扫描"}
@@ -199,7 +200,7 @@
 {ToolTip.Tip="Links all selected items to the first unselected item in each group."}={ToolTip.Tip="将选定项链接至组内首个未选项。"}
 {ToolTip.Tip="Hides this group and exclude it from future scans, except when there is a new duplicate."}={ToolTip.Tip="隐藏该组并排除后续扫描（除非出现新重复项）。"}
 {ToolTip.Tip="Note: Settings are automatically saved on normal exit"}={ToolTip.Tip="注意：正常退出时设置自动保存"}
-
+{ToolTip.Tip="Read creation date from EXIF metadata (DateTimeOriginal) instead of file system date. Useful when file creation date is not accurate."}={ToolTip.Tip="从 EXIF 元数据 (DateTimeOriginal) 读取创建日期，而不是使用文件系统日期。当文件创建日期不准确时很有用。"}
 
 {• Fastest}={• 速度最快}
 {• More false positives}={• 误报率更高}

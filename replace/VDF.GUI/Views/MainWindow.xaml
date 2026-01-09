@@ -967,6 +967,12 @@
                                                         IsThreeState="False" />
                                                     <CheckBox
                                                         VerticalAlignment="Center"
+                                                        Content="对图像使用 EXIF 创建日期"
+                                                        IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=UseExifCreationDate}"
+                                                        IsThreeState="False"
+                                                        ToolTip.Tip="从 EXIF 元数据 (DateTimeOriginal) 读取创建日期，而不是使用文件系统日期。当文件创建日期不准确时很有用。" />
+                                                    <CheckBox
+                                                        VerticalAlignment="Center"
                                                         Content="生成预览图像"
                                                         IsChecked="{Binding Source={x:Static Settings:SettingsFile.Instance}, Path=GeneratePreviewThumbnails}"
                                                         IsThreeState="False"
