@@ -60,24 +60,28 @@ jobs:
         with:
           submodules: 'recursive'
           fetch-depth: '0'
-  
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '9.0.x'
-  
+          dotnet-version: '10.0.x'
+
       - name: change language (Linux)
         if: matrix.kind != 'windows'
         shell: bash
         run: |
-          cp -rf "$GITHUB_WORKSPACE/replace/"* "$GITHUB_WORKSPACE/app/src/videoduplicatefinder/"
-  
+          if [ "$(ls -A "$GITHUB_WORKSPACE/replace" 2>/dev/null)" ]; then
+            cp -rf "$GITHUB_WORKSPACE/replace/"* "$GITHUB_WORKSPACE/app/src/videoduplicatefinder/"
+          fi
+
       - name: change language (Windows)
         if: matrix.kind == 'windows'
         shell: powershell
         run: |
-          Copy-Item "$env:GITHUB_WORKSPACE\replace\*" "$env:GITHUB_WORKSPACE\app\src\videoduplicatefinder" -Recurse -Force
-  
+          if ((Get-ChildItem "$env:GITHUB_WORKSPACE\replace" -ErrorAction SilentlyContinue).Count -gt 0) {
+            Copy-Item "$env:GITHUB_WORKSPACE\replace\*" "$env:GITHUB_WORKSPACE\app\src\videoduplicatefinder" -Recurse -Force
+          }
+
       - name: build and zip
         shell: bash
         run: |
