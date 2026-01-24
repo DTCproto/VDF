@@ -1,9 +1,18 @@
-name: Build releases
-
+name: BUILD_BY_RELEASES(VDF)
 
 on:
   # you may only define up to 10 `inputs` for a `workflow_dispatch` event
   workflow_dispatch:
+    inputs:
+      vdf_commit_id:
+        description: "指定VDF使用commit id版本"
+        required: true
+        default: "HEAD~0"
+        type: string
+      release_archives:
+        description: "enable release archives"
+        default: true
+        type: boolean
 
 jobs:
   pre:
@@ -16,16 +25,16 @@ jobs:
     outputs:
       vdf_sha_short: ${{ steps.set_global_params.outputs.vdf_sha_short }}
     steps:
-      - uses: actions/checkout@v6
-        with:
-          submodules: 'recursive'
-          fetch-depth: '0'
-
       - name: set global params
         id: set_global_params
         shell: bash
         run: |
-          cd $GITHUB_WORKSPACE/app/src/videoduplicatefinder/
+          mkdir -p ${{ github.workspace }}/build
+          cd ${{ github.workspace }}/build
+          git clone -b master https://github.com/0x90d/videoduplicatefinder.git
+          cd ${{ github.workspace }}/build/videoduplicatefinder
+          git checkout --force --quiet ${{ inputs.vdf_commit_id }}
+          git submodule update --init --recursive
           echo "vdf_sha_short=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
   build:
@@ -52,14 +61,19 @@ jobs:
             os: ubuntu-latest
             target: linux-arm64
             name: linux-arm64
-            
-    runs-on: ${{ matrix.os }}
 
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v6
         with:
           submodules: 'recursive'
-          fetch-depth: '0'
+          fetch-depth: 0
+
+      - name: git clone VDF
+        run: |
+          cd $GITHUB_WORKSPACE/app/src/videoduplicatefinder/
+          git checkout --force --quiet ${{ inputs.vdf_commit_id }}
+          git submodule update --init --recursive
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
@@ -110,6 +124,7 @@ jobs:
             ${{ github.workspace }}/app/src/videoduplicatefinder/App-*
 
   release:
+    if: ${{ inputs.release_archives }}
     needs: [pre, build]
     runs-on: ubuntu-latest
     permissions:
