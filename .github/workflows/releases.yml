@@ -70,9 +70,10 @@ jobs:
           fetch-depth: 0
 
       - name: git clone VDF
+        shell: bash
         run: |
           cd $GITHUB_WORKSPACE/app/src/videoduplicatefinder/
-          git checkout --force --quiet ${{ inputs.vdf_commit_id }}
+          git checkout --force --quiet ${{ needs.pre.outputs.vdf_sha_short }}
           git submodule update --init --recursive
 
       - name: Setup .NET
