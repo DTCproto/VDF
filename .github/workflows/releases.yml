@@ -117,7 +117,7 @@ jobs:
             rm -r "outputFolder"
 
       - name: Upload zips
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: bin-App-${{ matrix.target }}-3.0.${{ needs.pre.outputs.vdf_sha_short }}
           compression-level: 9
@@ -135,7 +135,7 @@ jobs:
       id-token: write
     steps:
       - name: Download zips archives
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           pattern: "bin*"
           merge-multiple: true
