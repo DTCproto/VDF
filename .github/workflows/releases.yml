@@ -146,7 +146,7 @@ jobs:
           tree ${{ github.workspace }}/archives
 
       - name: Release archives
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: "3.0.${{ needs.pre.outputs.vdf_sha_short }}"
           name: "3.0.${{ needs.pre.outputs.vdf_sha_short }}"
