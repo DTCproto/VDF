@@ -102,19 +102,17 @@ jobs:
         run: |
             cd $GITHUB_WORKSPACE/app/src/videoduplicatefinder/
             release_name="App-${{ matrix.target }}-3.0.${{ needs.pre.outputs.vdf_sha_short }}"
-            # Add nuget sources
-            dotnet nuget add source https://www.myget.org/F/sixlabors/api/v3/index.json
             # Build everything
-            dotnet publish ./VDF.GUI/VDF.GUI.csproj -c Release -v q --self-contained -r "${{ matrix.target }}" -o "outputFolder"
+            dotnet publish ./VDF.GUI/VDF.GUI.csproj -c Release -v q --self-contained -r "${{ matrix.target }}" -o "outputGUI"
             # Pack files
             if [ "${{ matrix.target }}" == "win-x64" ]; then
               # Pack to zip for Windows
-              7z a -tzip "${release_name}.zip" "./outputFolder/*"
+              7z a -tzip "${release_name}.zip" "./outputGUI/*"
             else
-              tar czvf "${release_name}.tar.gz" "outputFolder"
+              tar czvf "${release_name}.tar.gz" "outputGUI"
             fi
             # Delete output directory
-            rm -r "outputFolder"
+            rm -r "outputGUI"
 
       - name: Upload zips
         uses: actions/upload-artifact@v7
