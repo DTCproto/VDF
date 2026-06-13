@@ -58,7 +58,9 @@ jobs:
             target: win-x64
             name: win-x64
           - kind: linuxarm64
-            os: ubuntu-latest
+            # Native ARM64 runner: Native AOT cannot cross-compile from x64 to
+            # linux-arm64 without a cross toolchain, so build it on its own arch.
+            os: ubuntu-24.04-arm
             target: linux-arm64
             name: linux-arm64
 
