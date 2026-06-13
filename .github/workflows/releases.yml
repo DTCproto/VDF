@@ -101,18 +101,29 @@ jobs:
         shell: bash
         run: |
             cd $GITHUB_WORKSPACE/app/src/videoduplicatefinder/
-            release_name="App-${{ matrix.target }}-3.0.${{ needs.pre.outputs.vdf_sha_short }}"
+            release_name="App-${{ matrix.target }}-4.0.${{ needs.pre.outputs.vdf_sha_short }}"
             # Build everything
-            dotnet publish ./VDF.GUI/VDF.GUI.csproj -c Release -v q --self-contained -r "${{ matrix.target }}" -o "outputGUI"
+            # Build GUI (Native AOT — verified AOT-safe for 4.0: compiled bindings,
+            # source-generated JSON, statically-registered MemoryPack formatters)
+            dotnet publish ./VDF.GUI/VDF.GUI.csproj -c Release -v q -p:PublishAot=true -r "${{ matrix.target }}" -o "outputGUI"
+            # Build CLI (Native AOT)
+            dotnet publish ./VDF.CLI/VDF.CLI.csproj -c Release -v q -p:PublishAot=true -r "${{ matrix.target }}" -o "outputCLI"
+            # Build Web (JIT, self-contained — Blazor Server is not supported under Native AOT)
+            dotnet publish ./VDF.Web/VDF.Web.csproj -c Release -v q --self-contained -r "${{ matrix.target }}" -o "outputWeb"
+          
             # Pack files
             if [ "${{ matrix.target }}" == "win-x64" ]; then
               # Pack to zip for Windows
-              7z a -tzip "${release_name}.zip" "./outputGUI/*"
+              7z a -tzip "GUI-${release_name}.zip" "./outputGUI/*"
+              7z a -tzip "CLI-${release_name}.zip" "./outputCLI/*"
+              7z a -tzip "Web-${release_name}.zip" "./outputWeb/*"
             else
-              tar czvf "${release_name}.tar.gz" "outputGUI"
+              tar czvf "GUI-${release_name}.tar.gz" "outputGUI"
+              tar czvf "CLI-${release_name}.tar.gz" "outputCLI"
+              tar czvf "Web-${release_name}.tar.gz" "outputWeb"
             fi
-            # Delete output directory
-            rm -r "outputGUI"
+            # Clean up
+            rm -rf "outputGUI" "outputCLI" "outputWeb" "Video Duplicate Finder.app"
 
       - name: Upload zips
         uses: actions/upload-artifact@v7
@@ -120,7 +131,9 @@ jobs:
           name: bin-App-${{ matrix.target }}-3.0.${{ needs.pre.outputs.vdf_sha_short }}
           compression-level: 9
           path: |
-            ${{ github.workspace }}/app/src/videoduplicatefinder/App-*
+            ${{ github.workspace }}/app/src/videoduplicatefinder/GUI-App-*
+            ${{ github.workspace }}/app/src/videoduplicatefinder/CLI-App-*
+            ${{ github.workspace }}/app/src/videoduplicatefinder/Web-App-*
 
   release:
     if: ${{ inputs.release_archives }}
@@ -146,8 +159,8 @@ jobs:
       - name: Release archives
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: "3.0.${{ needs.pre.outputs.vdf_sha_short }}"
-          name: "3.0.${{ needs.pre.outputs.vdf_sha_short }}"
+          tag_name: "4.0.${{ needs.pre.outputs.vdf_sha_short }}"
+          name: "4.0.${{ needs.pre.outputs.vdf_sha_short }}"
           token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: false
           body: |
