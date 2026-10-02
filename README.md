@@ -5,8 +5,8 @@ Video Duplicate Finder (Auto Build)
 [重命名替换即可]
 [ai/dinov2-small-int8.onnx]
 
-https://huggingface.co/Xenova/dinov2-small/tree/main/onnx/model_quantized.onnx
+https://huggingface.co/Xenova/dinov2-large/resolve/main/onnx/model_quantized.onnx?download=true
 
-https://huggingface.co/Xenova/dinov2-base/blob/main/onnx/model_quantized.onnx
+https://huggingface.co/Xenova/dinov2-base/resolve/main/onnx/model_quantized.onnx?download=true
 
-https://huggingface.co/Xenova/dinov2-large/tree/main/onnx/model_quantized.onnx
+https://huggingface.co/Xenova/dinov2-small/resolve/main/onnx/model_quantized.onnx?download=true
